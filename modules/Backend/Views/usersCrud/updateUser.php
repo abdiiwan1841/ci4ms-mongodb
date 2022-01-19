@@ -1,7 +1,7 @@
 <?= $this->extend('Modules\Backend\Views\base') ?>
 
 <?= $this->section('title') ?>
-Ofis Çalışanı Güncelleme
+<?=lang('Backend.'. $title->pagename)?>
 <?= $this->endSection() ?>
 <?= $this->section('content') ?>
 <!-- Content Header (Page header) -->
@@ -9,7 +9,7 @@ Ofis Çalışanı Güncelleme
     <div class="container-fluid">
         <div class="row pb-3 border-bottom">
             <div class="col-sm-6">
-                <h1>Ofis Çalışanı Güncelleme</h1>
+                <h1><?=lang('Backend.'. $title->pagename)?></h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">

@@ -4,7 +4,7 @@
 <?=lang('Backend.userList')?>
 <?= $this->endSection() ?>
 <?= $this->section('head') ?>
-<link rel="stylesheet" href="/be-assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+<?=link_tag("be-assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css")?>
 <?= $this->endSection() ?>
 <?= $this->section('content') ?>
 <!-- Content Header (Page header) -->
@@ -192,7 +192,7 @@
 
 <?= $this->section('javascript') ?>
 <!-- SweetAlert2 -->
-<script src="/be-assets/plugins/sweetalert2/sweetalert2.min.js"></script>
+<?=script_tag("be-assets/plugins/sweetalert2/sweetalert2.min.js")?>
 
 <script>
     var Toast = Swal.mixin({

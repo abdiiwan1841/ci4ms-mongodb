@@ -5,7 +5,7 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('head') ?>
-<link rel="stylesheet" href="/be-assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+<?=link_tag("be-assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css")?>
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -108,5 +108,5 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('javascript') ?>
-<script src="/be-assets/plugins/sweetalert2/sweetalert2.min.js"></script>
+<?=script_tag("be-assets/plugins/sweetalert2/sweetalert2.min.js")?>
 <?= $this->endSection() ?>

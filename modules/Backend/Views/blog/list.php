@@ -108,9 +108,9 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('javascript') ?>
-<script src="/be-assets/plugins/sweetalert2/sweetalert2.min.js"></script>
+<?=script_tag("be-assets/plugins/sweetalert2/sweetalert2.min.js")?>
 <!-- Bootstrap Switch -->
-<script src="/be-assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<?=script_tag("be-assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js")?>
 <script>
     $('.bswitch').bootstrapSwitch();
     $('.bswitch').on('switchChange.bootstrapSwitch', function () {

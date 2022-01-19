@@ -5,16 +5,16 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('head') ?>
-<link rel="stylesheet" href="/be-assets/node_modules/@yaireo/tagify/dist/tagify.css">
-<link rel="stylesheet" href="/be-assets/plugins/summernote/summernote-bs4.css">
-<link rel="stylesheet" href="/be-assets/plugins/jquery-ui/jquery-ui.css">
+<?=link_tag("be-assets/node_modules/@yaireo/tagify/dist/tagify.css")?>
+<?=link_tag("be-assets/plugins/summernote/summernote-bs4.css")?>
+<?=link_tag("be-assets/plugins/jquery-ui/jquery-ui.css")?>
 <link rel="stylesheet" type="text/css"
       href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-<link rel="stylesheet" href="/be-assets/plugins/elFinder/css/elfinder.full.css">
-<link rel="stylesheet" href="/be-assets/plugins/elFinder/css/theme.css">
+<?=link_tag("be-assets/plugins/elFinder/css/elfinder.full.css")?>
+<?=link_tag("be-assets/plugins/elFinder/css/theme.css")?>
 <!-- Select2 -->
-<link rel="stylesheet" href="/be-assets/plugins/select2/css/select2.min.css">
-<link rel="stylesheet" href="/be-assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+<?=link_tag("be-assets/plugins/select2/css/select2.min.css")?>
+<?=link_tag("be-assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css")?>
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -172,18 +172,18 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('javascript') ?>
-<script src="/be-assets/plugins/jquery-ui/jquery-ui.js"></script>
-<script src="/be-assets/node_modules/@yaireo/tagify/dist/jQuery.tagify.min.js"></script>
-<script src="/be-assets/plugins/summernote/summernote-bs4.js"></script>
-<script src="/be-assets/plugins/elFinder/js/elfinder.full.js"></script>
-<script src="/be-assets/plugins/elFinder/js/i18n/elfinder.tr.js"></script>
-<script src="/be-assets/plugins/elFinder/js/extras/editors.default.js"></script>
-<script src="/be-assets/plugins/summernote/plugin/elfinder/summernote-ext-elfinder.js"></script>
-<script src="/be-assets/plugins/select2/js/select2.full.min.js"></script>
-<script src="/be-assets/js/ci4ms.js"></script>
+<?=script_tag("be-assets/plugins/jquery-ui/jquery-ui.js")?>
+<?=script_tag("be-assets/node_modules/@yaireo/tagify/dist/jQuery.tagify.min.js")?>
+<?=script_tag("be-assets/plugins/summernote/summernote-bs4.js")?>
+<?=script_tag("be-assets/plugins/elFinder/js/elfinder.full.js")?>
+<?=script_tag("be-assets/plugins/elFinder/js/i18n/elfinder.tr.js")?>
+<?=script_tag("be-assets/plugins/elFinder/js/extras/editors.default.js")?>
+<?=script_tag("be-assets/plugins/summernote/plugin/elfinder/summernote-ext-elfinder.js")?>
+<?=script_tag("be-assets/plugins/select2/js/select2.full.min.js")?>
+<?=script_tag("be-assets/js/ci4ms.js")?>
 <!-- InputMask -->
-<script src="/be-assets/plugins/moment/moment.min.js"></script>
-<script src="/be-assets/plugins/inputmask/jquery.inputmask.min.js"></script>
+<?=script_tag("be-assets/plugins/moment/moment.min.js")?>
+<?=script_tag("be-assets/plugins/inputmask/jquery.inputmask.min.js")?>
 <script>
     $.post('<?=route_to('tagify')?>', {"<?=csrf_token()?>": "<?=csrf_hash()?>"}, 'json').done(function (data) {tags(data);});
 

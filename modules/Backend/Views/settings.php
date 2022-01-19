@@ -5,12 +5,12 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('head') ?>
-<link rel="stylesheet" href="/be-assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
-<link rel="stylesheet" href="/be-assets/plugins/jquery-ui/jquery-ui.css">
+<?=link_tag("be-assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css")?>
+<?=link_tag("be-assets/plugins/jquery-ui/jquery-ui.css")?>
 <link rel="stylesheet" type="text/css"
       href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-<link rel="stylesheet" href="/be-assets/plugins/elFinder/css/elfinder.full.css">
-<link rel="stylesheet" href="/be-assets/plugins/elFinder/css/theme.css">
+<?=link_tag("be-assets/plugins/elFinder/css/elfinder.full.css")?>
+<?=link_tag("be-assets/plugins/elFinder/css/theme.css")?>
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -391,15 +391,15 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('javascript') ?>
-<script src="/be-assets/plugins/jquery-ui/jquery-ui.js"></script>
-<script src="/be-assets/plugins/sweetalert2/sweetalert2.min.js"></script>
-<script src="/be-assets/node_modules/jquery.repeater/jquery.repeater.js"></script>
+<?=script_tag("be-assets/plugins/jquery-ui/jquery-ui.js")?>
+<?=script_tag("be-assets/plugins/sweetalert2/sweetalert2.min.js")?>
+<?=script_tag("be-assets/node_modules/jquery.repeater/jquery.repeater.js")?>
 <!-- Bootstrap Switch -->
-<script src="/be-assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-<script src="/be-assets/plugins/elFinder/js/elfinder.full.js"></script>
-<script src="/be-assets/plugins/elFinder/js/i18n/elfinder.tr.js"></script>
-<script src="/be-assets/plugins/elFinder/js/extras/editors.default.js"></script>
-<script src="/be-assets/js/ci4ms.js"></script>
+<?=script_tag("be-assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js")?>
+<?=script_tag("be-assets/plugins/elFinder/js/elfinder.full.js")?>
+<?=script_tag("be-assets/plugins/elFinder/js/i18n/elfinder.tr.js")?>
+<?=script_tag("be-assets/plugins/elFinder/js/extras/editors.default.js")?>
+<?=script_tag("be-assets/js/ci4ms.js")?>
 <script>
     $(document).ready(function () {
         'use strict';
