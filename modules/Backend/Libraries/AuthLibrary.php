@@ -445,25 +445,28 @@ class AuthLibrary
         if($settings->lockedIsActive){
 
             $whitlist = $this->commonModel->getOne('login_rules', ['type' => 'whitelist']);
-            foreach ($whitlist->username as $locked_username)
-                if ($locked_username === $username) return false;
+            if ($whitlist){
+                foreach ($whitlist->username as $locked_username)
+                    if ($locked_username === $username) return false;
 
-            foreach ($whitlist->line as $line)
-                if ($line === $this->ipAddress) return false;
+                foreach ($whitlist->line as $line)
+                    if ($line === $this->ipAddress) return false;
 
-            foreach ($whitlist->range as $range)
-                if ($this->ipRangeControl($range,$this->ipAddress))  return false;
+                foreach ($whitlist->range as $range)
+                    if ($this->ipRangeControl($range,$this->ipAddress))  return false;
+            }
 
             $blacklist = $this->commonModel->getOne('login_rules', ['type' => 'blacklist']);
-            foreach ($blacklist->username as $locked_username)
-                if ($locked_username === $username) return true;
+            if ($blacklist) {
+                foreach ($blacklist->username as $locked_username)
+                    if ($locked_username === $username) return true;
 
-            foreach ($blacklist->username as $line)
-                if ($line === $this->ipAddress) return true;
+                foreach ($blacklist->username as $line)
+                    if ($line === $this->ipAddress) return true;
 
-            foreach ($blacklist->range as $range)
-                if ($this->ipRangeControl($range,$this->ipAddress))  return true;
-
+                foreach ($blacklist->range as $range)
+                    if ($this->ipRangeControl($range,$this->ipAddress))  return true;
+            }
 
             $where = ['islocked' => true];
             $where_or = ['username' => $username, 'ip_address' => $this->ipAddress];
