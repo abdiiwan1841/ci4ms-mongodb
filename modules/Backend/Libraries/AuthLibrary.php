@@ -490,7 +490,7 @@ class AuthLibrary
 
             $loginAttempts = $this->userModel->getOneOr('auth_logins', ['isSuccess' => false], ['sort' => ['_id' => -1]],['id','counter'],$where_or);
 
-            if( $loginAttempts && ($loginAttempts->counter+1)  >= (int)$settings->lockedTry ){
+            if( $loginAttempts && isset($loginAttempts->counter) && ($loginAttempts->counter+1)  >= (int)$settings->lockedTry ){
                 if (( $countLockedValue + 1 ) < ((int)$settings->lockedRecord))
                     $expiry_date = Time::createFromFormat('Y-m-d H:i:s', $this->now->addMinutes((int)$settings->lockedMin));
                 else {
