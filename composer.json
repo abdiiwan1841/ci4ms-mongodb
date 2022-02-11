@@ -5,7 +5,7 @@
 	"homepage": "https://bertugfahriozer.com/blogDetail/sistemde-kimlik-dogrulama-auth",
 	"license": "MIT",
 	"require": {
-		"php": "^7.3||8.0",
+		"php": "^7.3||^8",
 		"codeigniter4/framework": "^4",
 		"codeigniter4/translations": "^4.1",
 		"almasaeed2010/adminlte": "^v3",
