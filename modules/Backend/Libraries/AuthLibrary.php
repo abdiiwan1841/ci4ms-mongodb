@@ -445,25 +445,28 @@ class AuthLibrary
         if($settings->lockedIsActive){
 
             $whitlist = $this->commonModel->getOne('login_rules', ['type' => 'whitelist']);
-            foreach ($whitlist->username as $locked_username)
-                if ($locked_username === $username) return false;
+            if ($whitlist){
+                foreach ($whitlist->username as $locked_username)
+                    if ($locked_username === $username) return false;
 
-            foreach ($whitlist->line as $line)
-                if ($line === $this->ipAddress) return false;
+                foreach ($whitlist->line as $line)
+                    if ($line === $this->ipAddress) return false;
 
-            foreach ($whitlist->range as $range)
-                if ($this->ipRangeControl($range,$this->ipAddress))  return false;
+                foreach ($whitlist->range as $range)
+                    if ($this->ipRangeControl($range,$this->ipAddress))  return false;
+            }
 
             $blacklist = $this->commonModel->getOne('login_rules', ['type' => 'blacklist']);
-            foreach ($blacklist->username as $locked_username)
-                if ($locked_username === $username) return true;
+            if ($blacklist) {
+                foreach ($blacklist->username as $locked_username)
+                    if ($locked_username === $username) return true;
 
-            foreach ($blacklist->username as $line)
-                if ($line === $this->ipAddress) return true;
+                foreach ($blacklist->username as $line)
+                    if ($line === $this->ipAddress) return true;
 
-            foreach ($blacklist->range as $range)
-                if ($this->ipRangeControl($range,$this->ipAddress))  return true;
-
+                foreach ($blacklist->range as $range)
+                    if ($this->ipRangeControl($range,$this->ipAddress))  return true;
+            }
 
             $where = ['islocked' => true];
             $where_or = ['username' => $username, 'ip_address' => $this->ipAddress];
@@ -487,7 +490,7 @@ class AuthLibrary
 
             $loginAttempts = $this->userModel->getOneOr('auth_logins', ['isSuccess' => false], ['sort' => ['_id' => -1]],['id','counter'],$where_or);
 
-            if( $loginAttempts && ($loginAttempts->counter+1)  >= (int)$settings->lockedTry ){
+            if( $loginAttempts && isset($loginAttempts->counter) && ($loginAttempts->counter+1)  >= (int)$settings->lockedTry ){
                 if (( $countLockedValue + 1 ) < ((int)$settings->lockedRecord))
                     $expiry_date = Time::createFromFormat('Y-m-d H:i:s', $this->now->addMinutes((int)$settings->lockedMin));
                 else {
